@@ -108,13 +108,19 @@ class MakeAuthCommand extends Command
             
             system('composer dump -o');
 
-            echo "\n\033[32mCreate : \033[0m AuthController.php - \033[33mcontrollers/Auth/AuthController.php \n";
             echo "\n\033[32mCreate Table : \033[0m users";
             echo "\n\033[32mCreate Table : \033[0m users_confirmations";
             echo "\n\033[32mCreate Table : \033[0m users_remembered";
             echo "\n\033[32mCreate Table : \033[0m users_resets";
             echo "\n\033[32mCreate Table : \033[0m users_throttling \n\n";
+
+            echo "\033[32mCreate : \033[0m AuthController.php - \033[33mcontrollers/Auth/AuthController.php \n";
+            echo "\033[32mCreate : \033[0m auth.php - \033[33mroutes/auth.php \n";
+            echo "\033[32mCreate : \033[0m login.php - \033[33mresources/views/auth/login.php \n";
+            echo "\033[32mCreate : \033[0m register.php - \033[33mresources/views/auth/register.php \n";
+            echo "\n\033[32mAuto setup controller \033[0m- \033[33mcontrollers/Auth/AuthController.php\n";
             echo "\033[32mAuto setup route \033[0m- \033[33mroutes/web.php\n";
+            echo "\033[32mAuto setup route auth\033[0m- \033[33mroutes/auth.php\n";
             echo "\033[32mSuccess setup auth for project. \033[0m\n";
 
         }else{
@@ -506,7 +512,7 @@ include 'auth.php';";
     public function makeAuthRoute()
     {
 
-        $myfile  = fopen("routes/login.php", "w") or die("Unable to open file!");
+        $myfile  = fopen("routes/auth.php", "w") or die("Unable to open file!");
 
         $content = "<?php
 
