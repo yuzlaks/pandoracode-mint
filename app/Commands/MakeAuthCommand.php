@@ -212,6 +212,12 @@ class AuthController
                 '$'mail = new PHPMailer(true);
     
                 try {
+
+                    //Project Info
+                    '$'protocole = '$'_SERVER['REQUEST_SCHEME'].'://';
+                    '$'host = '$'_SERVER['HTTP_HOST'] . '/';
+                    '$'project = explode('/', '$'_SERVER['REQUEST_URI'])[1];
+
                     //Server settings
                     '$'mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                     '$'mail->isSMTP();                                            //Send using SMTP
@@ -231,7 +237,7 @@ class AuthController
                     //Content
                     '$'mail->isHTML(true);                                  //Set email format to HTML
                     '$'mail->Subject = 'Confirm Account';
-                    '$'mail->Body    = '<a href='http://localhost/pmint/verifyemail/'.'$'selector.'/'.'$'token.''>Verify Email.</a>';
+                    '$'mail->Body    = '<a href=`'.'$'protocole.'$'host.'$'project.'/verifyemail/'.'$'selector.'/'.'$'token.'`>Verify Email.</a>';
                     '$'mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
                     '$'mail->send();

@@ -307,6 +307,7 @@ class ComposerStaticInit2bf5f5ec4006d3e178e4df4b19f3469c
         'CheckDBCommand' => __DIR__ . '/../..' . '/app/Commands/CheckDBCommand.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ControllerCommand' => __DIR__ . '/../..' . '/app/Commands/ControllerCommand.php',
+        'Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/controllers/Auth/AuthController.php',
         'CoreCommand' => __DIR__ . '/../..' . '/app/Commands/CoreCommand.php',
         'Delight\\Auth\\Administration' => __DIR__ . '/..' . '/delight-im/auth/src/Administration.php',
         'Delight\\Auth\\AmbiguousUsernameException' => __DIR__ . '/..' . '/delight-im/auth/src/AmbiguousUsernameException.php',
