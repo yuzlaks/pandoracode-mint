@@ -29,8 +29,8 @@ class ComposerStaticInit2bf5f5ec4006d3e178e4df4b19f3469c
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'fadb20cbe0d3f0c2f1d99e6b426f5547' => __DIR__ . '/../..' . '/app/Helpers/Views.php',
-        '28682a45756624b1feb95ad9b510f829' => __DIR__ . '/../..' . '/app/Helpers/Statement.php',
+        'bd6ff46ea354c6971d24be6c52f4c232' => __DIR__ . '/../..' . '/app/Helpers/Views.php',
+        '694c32ae960c5d37e62cf4369c68375b' => __DIR__ . '/../..' . '/app/Helpers/Statement.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -307,7 +307,6 @@ class ComposerStaticInit2bf5f5ec4006d3e178e4df4b19f3469c
         'CheckDBCommand' => __DIR__ . '/../..' . '/app/Commands/CheckDBCommand.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ControllerCommand' => __DIR__ . '/../..' . '/app/Commands/ControllerCommand.php',
-        'Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/controllers/Auth/AuthController.php',
         'CoreCommand' => __DIR__ . '/../..' . '/app/Commands/CoreCommand.php',
         'Delight\\Auth\\Administration' => __DIR__ . '/..' . '/delight-im/auth/src/Administration.php',
         'Delight\\Auth\\AmbiguousUsernameException' => __DIR__ . '/..' . '/delight-im/auth/src/AmbiguousUsernameException.php',

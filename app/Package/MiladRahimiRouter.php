@@ -51,8 +51,4 @@ include 'routes/web.php';
  * Execute all routes.
  */
 
-try {
-    $router->dispatch();
-} catch (\Throwable $th) {
-    errorView("404 | Page not found.");
-}
+$router->dispatch();

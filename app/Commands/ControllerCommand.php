@@ -181,12 +181,7 @@ class $fileNameCommand
     
             $urlFinal    = strtolower($fileNameCommand);
     
-            $write_text   = "\n'$'router->get('$urlFinal',[$nameClass\\$fileNameCommand::class,'index']);\r\n";
-            $write_text  .= "'$'router->get('create-$urlFinal',[$nameClass\\$fileNameCommand::class,'create']);\r\n";
-            $write_text  .= "'$'router->post('store-$urlFinal',[$nameClass\\$fileNameCommand::class,'store']);\r\n";
-            $write_text  .= "'$'router->get('edit-$urlFinal/{id}',[$nameClass\\$fileNameCommand::class,'edit']);\r\n";
-            $write_text  .= "'$'router->post('update-$urlFinal/{id}',[$nameClass\\$fileNameCommand::class,'update']);\r\n";
-            $write_text  .= "'$'router->get('delete-$urlFinal/{id}',[$nameClass\\$fileNameCommand::class,'delete']);\r\n";
+            $write_text   = "\n'$'router->resource('$urlFinal',$nameClass\\$fileNameCommand::class);\r\n";
     
             $write_text = str_replace("'$'", "$", $write_text);
     
@@ -274,9 +269,11 @@ class $fileNameCommand
 
 }";
             report($originalRequest, true);
-        } else {
+        }
+
+        if ($input->getOption($this->commandOption) == false && $input->getOption($this->commandOptionSuper) == false) {
             $content .= "
-            
+
 namespace $nameClass;
 
 use QB;
@@ -285,13 +282,14 @@ use Laminas\Diactoros\ServerRequest AS Request;
 
 class $fileNameCommand
 {
-    
+
     public function index()
     {
         echo 'This is index';
     }
 
 }";
+            
             report($originalRequest, false);
         }
 

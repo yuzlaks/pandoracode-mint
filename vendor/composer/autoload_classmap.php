@@ -88,7 +88,6 @@ return array(
     'CheckDBCommand' => $baseDir . '/app/Commands/CheckDBCommand.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'ControllerCommand' => $baseDir . '/app/Commands/ControllerCommand.php',
-    'Controllers\\Auth\\AuthController' => $baseDir . '/controllers/Auth/AuthController.php',
     'CoreCommand' => $baseDir . '/app/Commands/CoreCommand.php',
     'Delight\\Auth\\Administration' => $vendorDir . '/delight-im/auth/src/Administration.php',
     'Delight\\Auth\\AmbiguousUsernameException' => $vendorDir . '/delight-im/auth/src/AmbiguousUsernameException.php',
