@@ -1,4 +1,23 @@
 {
+    "name": "pandoradev/pandoracode-mint",
+    "type": "template",
+    "description": "The fast mini PHP Framework",
+    "keywords": ["template"],
+    "homepage": "http://pandoradev.site/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yusron Laksono",
+            "email": "yuzyus268@gmail.com",
+            "homepage": "http://pandoradev.site/",
+            "role": "Developer"
+        },
+        {
+            "name": "M. Maksum Irfani",
+            "homepage": "http://pandoradev.site/",
+            "role": "Developer"
+        }
+    ],
     "require" :{
         "symfony/console": "2.6.7",
         "filp/whoops": "^2.14",
