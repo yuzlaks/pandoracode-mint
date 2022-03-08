@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+# add our commands
+
+$dirCommand = glob('app/Commands/*');
+natsort($dirCommand);
+foreach (array_reverse($dirCommand) as $key => $value) {
+
+    $getLast = explode("/", $value);
+    $getLast = $getLast[count($getLast) - 1];
+    $getLast = str_replace(".php", "", $getLast);
+
+    $application->add(new $getLast());
+
+}
+
+$application->run();

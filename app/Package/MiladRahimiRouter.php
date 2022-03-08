@@ -1,0 +1,58 @@
+<?php
+
+use MiladRahimi\PhpRouter\Router;
+use Psr\Http\Message\ServerRequestInterface;
+use Laminas\Diactoros\Response\JsonResponse;
+/*
+|---------------------------------------------------
+| MiladRahimiRouter
+|---------------------------------------------------
+| 
+| PhpRouter is a powerful, lightweight, and very fast 
+| HTTP URL router for PHP projects.
+| 
+|---------------------------------------------------
+| source : https://github.com/miladrahimi/phprouter
+|---------------------------------------------------
+*/
+
+/**
+ * Initial Route Project
+ */
+$router = Router::create();
+
+/**
+ * Auth Middleware
+ * 
+ * Untuk keperluan routes/web.php
+ * jika nantinya project ditambahkan fitur login / auth.
+ */
+
+class AuthMiddleware{
+    public function handle(ServerRequestInterface $request, Closure $next)
+    {
+        global $auth;
+        if ($auth->getUsername()) {
+            return $next($request);   
+        }
+
+        return new JsonResponse(['error' => 'Unauthorized!'], 401);
+
+    }
+}
+
+/**
+ * Get list from routes/web.php
+ */
+
+include 'routes/web.php';
+
+/**
+ * Execute all routes.
+ */
+
+try {
+    $router->dispatch();
+} catch (\Throwable $th) {
+    errorView("404 | Page not found.");
+}
