@@ -3,7 +3,9 @@
     "name": "pandoradev/pandoracode-mint",
     "type": "template",
     "description": "The fast mini PHP Framework",
-    "keywords": ["template"],
+    "keywords": [
+        "template"
+    ],
     "homepage": "http://pandoradev.site/",
     "license": "MIT",
     "authors": [
@@ -19,7 +21,8 @@
             "role": "Developer"
         }
     ],
-    "require" :{
+    "require": {
+        "pandoradev/pandoracode-mint": "dev-master@dev",
         "symfony/console": "2.6.7",
         "filp/whoops": "^2.14",
         "vlucas/phpdotenv": "^5.4",
@@ -31,6 +34,12 @@
         "delight-im/auth": "^8.3",
         "phpmailer/phpmailer": "^6.6"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/yuzlaks/pandoracode-mint"
+        }
+    ],
     "autoload": {
         "classmap": [
             "app/Commands",
