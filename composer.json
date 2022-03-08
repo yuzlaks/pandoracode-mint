@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "stable",
     "name": "pandoradev/pandoracode-mint",
     "type": "template",
     "description": "The fast mini PHP Framework",
