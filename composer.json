@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "pandoradev/pandoracode-mint": "dev-master@dev",
+        "pandoradev/pandoracode-mint": "dev-main@dev",
         "symfony/console": "2.6.7",
         "filp/whoops": "^2.14",
         "vlucas/phpdotenv": "^5.4",
