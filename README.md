@@ -23,7 +23,7 @@ anda bisa mendapatkan informasi/bantuan mengenai command line yang tersedia pada
 `php pcode list:command`, dan anda akan mendapatkan semua command yang tersedia.
 
 Apakah anda ingin custom command anda sendiri?
-anda bisa menggunakan perintah berikut : \n
+anda bisa menggunakan perintah berikut : __
 `php pcode make:command Nama-Command` nantinya akan otomatis tercipta file baru di dalam `app/Command/(di sini)`.
 
 Copyright © 2022 by Pandoradev.
