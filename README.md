@@ -23,14 +23,7 @@ anda bisa mendapatkan informasi/bantuan mengenai command line yang tersedia pada
 `php pcode list:command`, dan anda akan mendapatkan semua command yang tersedia.
 
 Apakah anda ingin custom command anda sendiri?
-anda bisa menggunakan perintah berikut : `php pcode make:command Nama-Command` nantinya akan otomatis tercipta file baru di dalam `app/Command/(di sini)`.
+anda bisa menggunakan perintah berikut : 
+`php pcode make:command Nama-Command` nantinya akan otomatis tercipta file baru di dalam `app/Command/(di sini)`.
 
-## Support Me
-
-### Indonesia
-- Bank Syariah Mandiri [REK: 7142365973 (SUTAN GADING F NASUTION)]
-- [Trakteer](https://trakteer.id/sutanlab)
-- [Karyakarsa](https://karyakarsa.com/sutanlab)
-
----
 Copyright © 2022 by Pandoradev.
