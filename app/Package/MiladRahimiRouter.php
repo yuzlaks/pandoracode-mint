@@ -36,7 +36,7 @@ class AuthMiddleware{
             return $next($request);   
         }
 
-        return new JsonResponse(['error' => 'Unauthorized!'], 401);
+        return errorView('Unauthorized!');
 
     }
 }
