@@ -59,6 +59,11 @@ function asset($target)
   return $protocole . $host . $project . "/resources/assets/$target";
 }
 
+function dir_asset($target)
+{
+  return $_SERVER['DOCUMENT_ROOT'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME'])."resources/assets/$target";
+}
+
 function auth()
 {
   return new Auth;
