@@ -25,10 +25,11 @@ class PcodeDummy{
         
         for($i=1; $i <= 20; $i++){
 
-            QB::table('siswa')->insert([
+            // $fake_image = dummy_image();
 
-                "nama"   => $this->faker->name,
-                "alamat" => $this->faker->address
+            QB::table('table_name')->insert([
+
+                "column_name"   => $this->faker->name,
                 
             ]);
 
