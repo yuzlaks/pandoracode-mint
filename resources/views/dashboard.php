@@ -129,7 +129,7 @@
             <a href="google.com" class="button-start">Mulai Aksi</a>
             <a href="google.com" class="button">Dokumentasi</a>
 
-            <p class="version-info">V 1.0</p>
+            <p class="version-info">V 1.1</p>
 
         </center>
     </div>

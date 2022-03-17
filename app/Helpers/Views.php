@@ -1,9 +1,14 @@
 <?php
 
-function test()
-{
-    echo "A";
-}
+/*
+|--------------------------------------------------------------------------
+| Function view
+|--------------------------------------------------------------------------
+|
+| Di file ini semua keperluan view akan dihandle, mulai dari 
+| include view, parsing variable ke view dll.
+|
+*/
 
 function view($target, $data = null)
 {
@@ -14,7 +19,7 @@ class Template
 {
 
 	static $blocks = array();
-	static $cache_path = 'App/Cache/';
+	static $cache_path = 'app/Cache/';
 	static $cache_enabled = FALSE;
 
 	static function view($file, $data = null)

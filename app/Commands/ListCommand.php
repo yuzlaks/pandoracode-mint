@@ -49,7 +49,7 @@ class ListCommand extends Command
 
             ${$getLast} = new $getLast;
 
-            $class[] = $getLast;
+            @$class[] = $getLast;
         }
 
         $data = [];
