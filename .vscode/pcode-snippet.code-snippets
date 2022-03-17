@@ -10,6 +10,14 @@
   
 	},
 
+	"PHP Syntax": {
+  
+	  "prefix": "php",
+  
+	  "body": "<?php $1 ?>"
+  
+	},
+
 	"Foreach": {
   
 	  "prefix": "p:foreach",

@@ -47,8 +47,7 @@ class Storekeeper
         global $base_project;
 
         $url = ltrim($path,"/");
-        $url = "/".$url;
-        if($url === "/"){
+        if($url == "/"){
             $url = "";
         }
         
@@ -64,6 +63,7 @@ class Storekeeper
             $this->state->getMiddleware(),
             $this->state->getDomain()
         );
+        
     }
 
     /**
