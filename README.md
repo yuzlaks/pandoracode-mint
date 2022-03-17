@@ -12,6 +12,7 @@ Kami akan berusaha untuk terus mengembangan framework ini.
 - [x] Router System
 - [x] Query Builder
 - [x] Error Handler
+- [x] Dummy Data
 - [x] Auth
 - [x] Helper
 - [x] Easy to install other library
