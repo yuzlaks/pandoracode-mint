@@ -40,10 +40,6 @@ class CheckDBCommand extends Command
     {        
 
         try {
-        
-            $dotenv = Dotenv\Dotenv::createImmutable(__DIR__."../../../");
-            
-            $dotenv->load();
 
             $this->db = new PDO("mysql:host=$_ENV[DB_HOST];dbname=$_ENV[DB_NAME]", $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 

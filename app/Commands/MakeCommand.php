@@ -14,9 +14,6 @@ class MakeCommand extends Command
     public $commandArgumentName = "name";
     public $commandArgumentDescription = "New command";
 
-    public $commandOption = "full"; // should be specified like "app:greet John --cap"
-    public $commandOptionDescription = 'Awesome pattern for command';
-
     protected function configure()
     {
         $this
@@ -26,12 +23,6 @@ class MakeCommand extends Command
                 $this->commandArgumentName,
                 InputArgument::OPTIONAL,
                 $this->commandArgumentDescription
-            )
-            ->addOption(
-                $this->commandOption,
-                null,
-                InputOption::VALUE_NONE,
-                $this->commandOptionDescription
             );
     }
 
