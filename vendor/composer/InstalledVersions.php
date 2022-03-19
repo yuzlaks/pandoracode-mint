@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a9071248122bb8f34a76beae5e823a0844ee34c7',
+    'reference' => '8c0010950436fcf5a1361a16af4410c00043d30f',
     'name' => 'pandoradev/pandoracode-mint',
   ),
   'versions' => 
@@ -150,15 +150,14 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a9071248122bb8f34a76beae5e823a0844ee34c7',
+      'reference' => '8c0010950436fcf5a1361a16af4410c00043d30f',
     ),
     'phelium/mysql-backup' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
-        0 => '9999999-dev',
       ),
       'reference' => '2e0a41c0ac4338f4022a9891fbfcf79da32217cf',
     ),
