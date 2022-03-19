@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34a46bcda75630f12b418c3883b9d5dd",
+    "content-hash": "338c23affcf661967550e4a1ed94363e",
     "packages": [
         {
             "name": "delight-im/auth",
@@ -744,7 +744,7 @@
         },
         {
             "name": "phelium/mysql-backup",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shevabam/mysql-backup.git",
@@ -759,7 +759,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2083,9 +2082,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phelium/mysql-backup": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
