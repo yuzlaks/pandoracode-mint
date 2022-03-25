@@ -20,13 +20,15 @@
             "role": "Developer"
         }
     ],
+    "config": {
+        "platform-check": false
+    },
     "require": {
         "symfony/console": "2.6.7",
         "filp/whoops": "^2.14",
         "vlucas/phpdotenv": "^5.4",
         "usmanhalalit/pixie": "^2.0",
         "miladrahimi/phprouter": "5.*",
-        "voku/pagination": "^4.0",
         "rakit/validation": "^1.4",
         "nesbot/carbon": "^2.57",
         "delight-im/auth": "^8.3",

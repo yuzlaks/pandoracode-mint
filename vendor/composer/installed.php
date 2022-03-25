@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '8c0010950436fcf5a1361a16af4410c00043d30f',
+    'reference' => 'c57108bdb147b73617ac760049872a9ad6124137',
     'name' => 'pandoradev/pandoracode-mint',
   ),
   'versions' => 
@@ -126,7 +126,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '8c0010950436fcf5a1361a16af4410c00043d30f',
+      'reference' => 'c57108bdb147b73617ac760049872a9ad6124137',
     ),
     'phelium/mysql-backup' => 
     array (
@@ -319,15 +319,6 @@
       array (
       ),
       'reference' => '264dce589e7ce37a7ba99cb901eed8249fbec92f',
-    ),
-    'voku/pagination' => 
-    array (
-      'pretty_version' => '4.0.0',
-      'version' => '4.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e80c49a5744b608eb7f9c559a40e812f6e873fdb',
     ),
   ),
 );
