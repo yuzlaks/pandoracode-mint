@@ -31,8 +31,7 @@
         "nesbot/carbon": "^2.57",
         "delight-im/auth": "^8.3",
         "phpmailer/phpmailer": "^6.6",
-        "fzaninotto/faker": "^1.5",
-        "phelium/mysql-backup": "^1.0"
+        "fzaninotto/faker": "^1.5"
     },
     "repositories": [
         {
