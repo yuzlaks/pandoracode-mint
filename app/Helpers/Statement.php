@@ -63,12 +63,11 @@
         public $email;
         public $check;
 
-        public
-        function __construct() {
+        public function __construct() {
             global $auth;
-            $this->username = $auth->getUsername();
-            $this->email    = $auth->getEmail();
-            $this->check    = $auth->check();
+            // $this->username = $auth->getUsername();
+            // $this->email    = $auth->getEmail();
+            // $this->check    = $auth->check();
         }
     }
 
