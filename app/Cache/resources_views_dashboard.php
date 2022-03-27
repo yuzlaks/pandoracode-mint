@@ -1,3 +1,4 @@
+<?php class_exists('Template') or exit; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="<?php echo htmlentities(asset('css/bootstrap.min.css'), ENT_QUOTES, 'UTF-8') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap" rel="stylesheet">
@@ -85,7 +86,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img class="" src="{{ asset('img/mint-logo.png') }}" alt="">
+            <img class="" src="<?php echo htmlentities(asset('img/mint-logo.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -102,17 +103,17 @@
 
             </ul>
 
-            !! if(function_exists('auth')) !! 
+            <?php if(function_exists('auth')): ?> 
             
             <div class="dropdown" style="margin-left:-200px !important">
                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ auth()->username }}
+                    <?php echo htmlentities(auth()->username, ENT_QUOTES, 'UTF-8') ?>
                 </a>
                 <div style="margin-left:-100px !important" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
+                    <a class="dropdown-item" href="<?php echo htmlentities(url('logout'), ENT_QUOTES, 'UTF-8') ?>">Logout</a>
                 </div>
             </div>
-            !! endif !!
+            <?php endif; ?>
 
 
         </div>
@@ -126,8 +127,8 @@
             <p>"Kami berusaha terus berkembang menjadi lebih baik."</p>
 
             <br>
-            <a href="#" class="button-start">Mulai Aksi</a>
-            <a href="https://pandoradev.site" class="button">Dokumentasi</a>
+            <a href="google.com" class="button-start">Mulai Aksi</a>
+            <a href="google.com" class="button">Dokumentasi</a>
 
             <p class="version-info">V 1.1</p>
 
@@ -135,8 +136,8 @@
     </div>
 </body>
 
-<script src="{{ asset('js/jquery-3.6.0.js') }}" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="<?php echo htmlentities(asset('js/jquery-3.6.0.js'), ENT_QUOTES, 'UTF-8') ?>" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="<?php echo htmlentities(asset('js/bootstrap.bundle.js'), ENT_QUOTES, 'UTF-8') ?>"></script>
+<script src="<?php echo htmlentities(asset('js/bootstrap.bundle.min.js'), ENT_QUOTES, 'UTF-8') ?>"></script>
 
 </html>
