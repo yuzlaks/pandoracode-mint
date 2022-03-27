@@ -320,14 +320,5 @@
       ),
       'reference' => '264dce589e7ce37a7ba99cb901eed8249fbec92f',
     ),
-    'voku/pagination' => 
-    array (
-      'pretty_version' => '4.0.0',
-      'version' => '4.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e80c49a5744b608eb7f9c559a40e812f6e873fdb',
-    ),
   ),
 );
