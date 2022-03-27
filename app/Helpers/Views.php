@@ -81,6 +81,9 @@ class Template
 		// $code = self::compileForcedObject($code);
 		// $code = self::compileRemoveSymbol($code);
 
+		/** Docs code highlight */
+		$code = self::codehighlight($code);
+
 		$code = self::compilePHP($code);
 		return $code;
 	}
@@ -113,6 +116,11 @@ class Template
 	static function compileEchos($code)
 	{
 		return preg_replace('~\{{\s*(.+?)\s*\}}~is', '<?php echo htmlentities($1, ENT_QUOTES, \'UTF-8\') ?>', $code);
+	}
+
+	static function codehighlight($code)
+	{
+		return preg_replace('~\!! code : \s*(.+?)\s*\!!~is', '<pre><code class="language-php">$1</code></pre>', $code);
 	}
 
 	/**Foreach */

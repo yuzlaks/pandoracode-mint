@@ -3,7 +3,7 @@
 > Framework PHP mini.
 
 ### Pengenalan
-Ini adalah sebuah framework mini yang kami bangun, bisa anda gunakan untuk kerja tim mapupun solo,
+Ini adalah sebuah framework mini yang kami bangun, bisa digunakan untuk kerja tim mapupun solo,
 dengan metode View Controllrer (VC).
 Kami akan berusaha untuk terus mengembangan framework ini.
 

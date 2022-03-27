@@ -44,25 +44,46 @@ class Storekeeper
      */
     public function add(string $method, string $path, $controller, ?string $name = null): void
     {
-        global $base_project;
 
-        $url = ltrim($path,"/");
-        if($url == "/"){
-            $url = "";
+        if ($_ENV['RUN_SERVE'] == "TRUE") {
+
+            $path = ltrim($path,"/");
+            $path = "/".$path;
+
+            $this->repository->save(
+                $method,
+                $this->state->getPrefix() . $path,
+                $controller,
+                $name,
+                $this->state->getMiddleware(),
+                $this->state->getDomain()
+            );
+
+        }else{
+
+            global $base_project;
+
+            $url = ltrim($path,"/");
+            if($url == "/"){
+                $url = "";
+            }
+            
+            if($base_project === "/"){
+                $base_project = "";    
+            }
+            
+            $this->repository->save(
+                $method,
+                $base_project.$this->state->getPrefix() . $url,
+                $controller,
+                $name,
+                $this->state->getMiddleware(),
+                $this->state->getDomain()
+            );
+
         }
-        
-        if($base_project === "/"){
-            $base_project = "";    
-        }
-        
-        $this->repository->save(
-            $method,
-            $base_project.$this->state->getPrefix() . $url,
-            $controller,
-            $name,
-            $this->state->getMiddleware(),
-            $this->state->getDomain()
-        );
+
+
         
     }
 
