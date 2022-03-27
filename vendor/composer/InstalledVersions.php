@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => '1.1',
+    'version' => '1.1.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => 'c57108bdb147b73617ac760049872a9ad6124137',
+    'reference' => NULL,
     'name' => 'pandoradev/pandoracode-mint',
   ),
   'versions' => 
@@ -145,12 +145,12 @@ private static $installed = array (
     ),
     'pandoradev/pandoracode-mint' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => '1.1',
+      'version' => '1.1.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c57108bdb147b73617ac760049872a9ad6124137',
+      'reference' => NULL,
     ),
     'phelium/mysql-backup' => 
     array (
