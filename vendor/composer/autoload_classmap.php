@@ -90,7 +90,6 @@ return array(
     'ClearViewCommand' => $baseDir . '/app/Commands/ClearViewCommand.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'ControllerCommand' => $baseDir . '/app/Commands/ControllerCommand.php',
-    'Controllers\\Test' => $baseDir . '/controllers/Test.php',
     'CoreCommand' => $baseDir . '/app/Commands/CoreCommand.php',
     'Database\\PcodeDummy' => $baseDir . '/database/dummy/PcodeDummy.php',
     'Delight\\Auth\\Administration' => $vendorDir . '/delight-im/auth/src/Administration.php',

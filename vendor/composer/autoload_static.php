@@ -322,7 +322,6 @@ class ComposerStaticInit2bf5f5ec4006d3e178e4df4b19f3469c
         'ClearViewCommand' => __DIR__ . '/../..' . '/app/Commands/ClearViewCommand.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ControllerCommand' => __DIR__ . '/../..' . '/app/Commands/ControllerCommand.php',
-        'Controllers\\Test' => __DIR__ . '/../..' . '/controllers/Test.php',
         'CoreCommand' => __DIR__ . '/../..' . '/app/Commands/CoreCommand.php',
         'Database\\PcodeDummy' => __DIR__ . '/../..' . '/database/dummy/PcodeDummy.php',
         'Delight\\Auth\\Administration' => __DIR__ . '/..' . '/delight-im/auth/src/Administration.php',
