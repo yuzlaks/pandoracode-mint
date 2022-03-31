@@ -101,6 +101,7 @@ class MakeAuthCommand extends Command
             $this->makeAuthRoute();
             $this->makeLoginView();
             $this->makeRegisterView();
+            $this->rewriteHelper();
 
             $db->exec($table);
 
@@ -141,14 +142,30 @@ class MakeAuthCommand extends Command
         
 namespace Controllers\Auth;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 use Laminas\Diactoros\ServerRequest AS Request;
 
 
 class AuthController
 {
+
+    public '$'redirectAfterLogin;
+    public '$'redirectAfterConfirm;
+    public '$'redirectAfterLogout;
+
+    public function __construct()
+    {
+        
+        // Rute saat selesai proses login.
+        '$'this->redirectAfterLogin = '/';
+
+        // Rute saat selesai konfirmasi akun.
+        '$'this->redirectAfterConfirm = '/';
+        
+        // Rute saat selesai proses logout.
+        '$'this->redirectAfterLogout = '/';
+
+    }
+
     public function login()
     {
         
@@ -157,7 +174,7 @@ class AuthController
         if (!'$'auth->check()) {
             view('auth/login');
         }else{
-            errorView('501 | Bad Request');
+            errorView('502 | Bad Gateway');
         }
 
     }
@@ -170,7 +187,7 @@ class AuthController
         if (!'$'auth->check()) {
             view('auth/register');
         }else{
-            errorView('501 | Bad Request');
+            errorView('502 | Bad Gateway');
         }
 
 
@@ -185,7 +202,7 @@ class AuthController
 
             '$'auth->login('$'request->email, '$'request->password);
 
-            redirect('');
+            redirect('$'this->redirectAfterLogin);
 
         }
         catch (\Delight\Auth\InvalidEmailException '$'e) {
@@ -215,46 +232,8 @@ class AuthController
 
             '$'userId = '$'auth->register('$'request->email, '$'request->password, '$'request->name, function ('$'selector, '$'token) {
 
-                '$'mail = new PHPMailer(true);
-    
-                try {
-
-                    //Project Info
-                    '$'protocole = '$'_SERVER['REQUEST_SCHEME'].'://';
-                    '$'host = '$'_SERVER['HTTP_HOST'] . '/';
-                    '$'project = explode('/', '$'_SERVER['REQUEST_URI'])[1];
-
-                    //Server settings
-                    '$'mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                    '$'mail->isSMTP();                                            //Send using SMTP
-                    '$'mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                    '$'mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                    '$'mail->Username   = 'gawatiekahariyah@gmail.com';                     //SMTP username
-                    '$'mail->Password   = '@&)'$'@)@!';                               //SMTP password
-                    '$'mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                    '$'mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    
-                    //Recipients
-                    '$'mail->setFrom('pandoradevofficial@gmail.com', 'Pandoradev');
-                    '$'mail->addAddress('$'_POST['email']);     //Add a recipient
-                    // '$'mail->addCC('cc@example.com');
-                    // '$'mail->addBCC('bcc@example.com');
-    
-                    //Content
-                    '$'mail->isHTML(true);                                  //Set email format to HTML
-                    '$'mail->Subject = 'Confirm Account';
-                    '$'mail->Body    = '<a href=`'.'$'protocole.'$'host.'$'project.'/verifyemail/'.'$'selector.'/'.'$'token.'`>Verify Email.</a>';
-                    '$'mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    
-                    '$'mail->send();
-
-                    redirect('/');
-
-                } catch (Exception '$'e) {
-    
-                    echo 'Message could not be sent. Mailer Error: {'$'mail->ErrorInfo}';
-    
-                }
+                '$'this->confirmEmail('$'selector, '$'token);
+                
             });
 
         }
@@ -286,7 +265,7 @@ class AuthController
 
             '$'auth->confirmEmailAndSignIn('$'selector, '$'token);
             
-            redirect('/');
+            redirect('$'this->redirectAfterConfirm);
             
         }
         catch (\Delight\Auth\InvalidSelectorTokenPairException '$'e) {
@@ -313,7 +292,7 @@ class AuthController
 
         '$'auth->logout();
         
-        view('auth/login');
+        redirect('$'this->redirectAfterLogout);
 
     }
 
@@ -336,11 +315,31 @@ class AuthController
 
         $file_name  = "web";
 
-        $write_text  = "\n\n
+        $write_text  = "\n
 /**
  * Include auth route 
- * for get all request from auth */       
-include 'auth.php';";
+ * for get all request from auth */
+
+include 'auth.php';
+
+// Login.
+
+'$'router->get('login', [Controllers\Auth\AuthController::class, 'login']);
+'$'router->post('process-login', [Controllers\Auth\AuthController::class, 'processLogin']);
+
+// Register.
+
+'$'router->get('register', [Controllers\Auth\AuthController::class, 'register']);
+'$'router->post('process-register', [Controllers\Auth\AuthController::class, 'processRegister']);
+
+// Verify Email.
+
+'$'router->get('verifyemail/{selector}/{token}', [Controllers\Auth\AuthController::class, 'confirmEmail']);
+
+// Logout Account.
+
+'$'router->get('logout', [Controllers\Auth\AuthController::class, 'logout']);
+";
 
         $write_text = str_replace("'$'", "$", $write_text);
 
@@ -350,6 +349,37 @@ include 'auth.php';";
         $ext = ".php";
         $file_name = $folder . "" . $file_name . "" . $ext;
         $edit_file = fopen($file_name, 'w');
+
+        fwrite($edit_file, $write_text);
+        fclose($edit_file);
+    }
+
+    public function rewriteHelper()
+    {
+        $statementFile = file_get_contents("app/Helpers/Statement.php");
+
+        $authHelper = 'function auth() {
+        return new Auth;
+    }
+
+    class Auth {
+
+        public $username;
+        public $email;
+        public $check;
+
+        public
+        function __construct() {
+            global $auth;
+            $this->username = $auth->getUsername();
+            $this->email    = $auth->getEmail();
+            $this->check    = $auth->check();
+        }
+    }';
+
+        $write_text = str_replace("// Space auth (please don't delete this).", $authHelper, $statementFile);
+
+        $edit_file = fopen('app/Helpers/Statement.php', 'w');
 
         fwrite($edit_file, $write_text);
         fclose($edit_file);
@@ -523,23 +553,9 @@ use MiladRahimi\PhpRouter\Router;
     'middleware' => [AuthMiddleware::class],
 ];
 
-'$'router->get('login', [Controllers\Auth\AuthController::class, 'login']);
-'$'router->post('process-login', [Controllers\Auth\AuthController::class, 'processLogin']);
-
-'$'router->get('register', [Controllers\Auth\AuthController::class, 'register']);
-'$'router->post('process-register', [Controllers\Auth\AuthController::class, 'processRegister']);
-
-'$'router->get('verifyemail/{selector}/{token}', [Controllers\Auth\AuthController::class, 'confirmEmail']);
-
-'$'router->get('logout', [Controllers\Auth\AuthController::class, 'logout']);
-
 '$'router->group('$'attributes, function (Router '$'router) {
 
-    '$'router->get('foo', function(){
-
-        // Do it.
-
-    });
+    // Untuk rute yang hanya bisa diakses pada saat selesai proses login.
 
 });";
 

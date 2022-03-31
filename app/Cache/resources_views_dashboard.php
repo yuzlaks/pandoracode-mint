@@ -1,3 +1,4 @@
+<?php class_exists('Template') or exit; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Pandoracode Mint</title>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="<?php echo htmlentities(asset('css/bootstrap.min.css'), ENT_QUOTES, 'UTF-8') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap" rel="stylesheet">
@@ -100,8 +101,8 @@
     </div>
 </body>
 
-<script src="{{ asset('js/jquery-3.6.0.js') }}" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="<?php echo htmlentities(asset('js/jquery-3.6.0.js'), ENT_QUOTES, 'UTF-8') ?>" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="<?php echo htmlentities(asset('js/bootstrap.bundle.js'), ENT_QUOTES, 'UTF-8') ?>"></script>
+<script src="<?php echo htmlentities(asset('js/bootstrap.bundle.min.js'), ENT_QUOTES, 'UTF-8') ?>"></script>
 
 </html>

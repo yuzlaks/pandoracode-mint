@@ -130,7 +130,6 @@ class ControllerCommand extends Command
 namespace $nameClass;
 
 use QB;
-use Rakit\Validation\Validator;
 use Laminas\Diactoros\ServerRequest AS Request;
 
 class $fileNameCommand
@@ -212,27 +211,50 @@ class $fileNameCommand
 
         '$'data = QB::table('table_name')->get();
 
-        view('path/data', compact('data'));
+        view('path/file', compact('data'));
 
     }
 
     public function create()
     {
 
-        view('path/form');
+        view('path/file');
 
     }
 
     public function store(Request '$'request)
     {
 
-        QB::table('table_name')->insert([
-
-            'column' => '$'request->data
-
+        '$'validator = new Validator;
+        
+        '$'validation = '$'validator->validate('$'request->all(), [
+        
+            'name_field' => 'required'
+        
         ]);
 
-        redirect('url');
+        if ('$'validation->fails()) {
+        
+            // handling errors.
+            
+            '$'errors = '$'validation->errors();
+            
+            check('$'errors->firstOfAll());
+            
+            exit();
+        
+        } else {
+        
+            QB::table('table_name')->insert([
+
+                'column_table'  => '$'request->name_field,
+                'column_table2' => '$'request->name_field2
+    
+            ]);
+    
+            redirect('url');
+        
+        }
 
     }
 
@@ -241,7 +263,7 @@ class $fileNameCommand
         
         '$'data = QB::table('table_name')->where('id', '$'id)->first();
 
-        view('path/data', compact('data'));
+        view('path/file', compact('data'));
 
     }
 
@@ -250,7 +272,8 @@ class $fileNameCommand
 
         QB::table('table_name')->where('id', '$'id)->update([
             
-            'column' => '$'request->data
+            'column_table'  => '$'request->name_field,
+            'column_table2' => '$'request->name_field2
 
         ]);
 
@@ -277,7 +300,6 @@ class $fileNameCommand
 namespace $nameClass;
 
 use QB;
-use Rakit\Validation\Validator;
 use Laminas\Diactoros\ServerRequest AS Request;
 
 class $fileNameCommand

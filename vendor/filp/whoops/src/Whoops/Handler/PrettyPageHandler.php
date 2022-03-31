@@ -89,7 +89,7 @@ class PrettyPageHandler extends Handler
         '_COOKIE' => [],
         '_SESSION' => [],
         '_SERVER' => [],
-        '_ENV' => [],
+        '_ENV' => ['DB_HOST','DB_PORT','DB_USERNAME','DB_PASSWORD','DB_NAME','RUN_SERVE','DEBUG'],
     ];
 
     /**
@@ -150,7 +150,8 @@ class PrettyPageHandler extends Handler
         $this->searchPaths[] = __DIR__ . "/../Resources";
 
         // blacklist php provided auth based values
-        $this->blacklist('_SERVER', 'PHP_AUTH_PW');
+        $this->blacklist('_SERVER', 'PHP_AUTH_PW','_ENV');
+        
 
         $this->templateHelper = new TemplateHelper();
 

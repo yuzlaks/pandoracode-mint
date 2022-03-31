@@ -53,25 +53,6 @@
         "resources/assets/$target";
     }
 
-    function auth() {
-        return new Auth;
-    }
-
-    class Auth {
-
-        public $username;
-        public $email;
-        public $check;
-
-        public
-        function __construct() {
-            global $auth;
-            $this->username = $auth->getUsername();
-            $this->email    = $auth->getEmail();
-            $this->check    = $auth->check();
-        }
-    }
-
     function errorView($msg) {
         include 'app/Resources/Views/Error/ErrorRoute.php';
     }
@@ -105,3 +86,5 @@
 
         return $file_name;
     }
+
+    // Space auth (please don't delete this).

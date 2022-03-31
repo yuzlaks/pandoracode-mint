@@ -44,25 +44,52 @@ class Storekeeper
      */
     public function add(string $method, string $path, $controller, ?string $name = null): void
     {
-        global $base_project;
 
-        $url = ltrim($path,"/");
-        if($url == "/"){
-            $url = "";
+        if ($_ENV['RUN_SERVE'] == "TRUE") {
+
+            $end_url = $this->state->getPrefix() ."/". $path;
+            $end_url = explode("/", $end_url);
+
+            // menghilangkan array yang kosong
+            $end_url =array_filter($end_url, function($value) { return !is_null($value) && $value !== ''; });
+            $end_url = "/".implode("/", $end_url);
+            
+            $this->repository->save(
+                $method,
+                $end_url,
+                $controller,
+                $name,
+                $this->state->getMiddleware(),
+                $this->state->getDomain()
+            );
+            
+        }else{
+            
+            global $base_project;
+
+            
+            $end_url = $base_project."/".$this->state->getPrefix() ."/". $path;
+            $end_url = explode("/", $end_url);
+            
+            // menghilangkan array yang kosong
+            $end_url =array_filter($end_url, function($value) { return !is_null($value) && $value !== ''; });
+
+            if($path != "/"){
+                $end_url = "/".implode("/", $end_url);
+            }else{
+                $end_url = "/".implode("/", $end_url)."/";
+            }
+
+            $this->repository->save(
+                $method,
+                $end_url,
+                $controller,
+                $name,
+                $this->state->getMiddleware(),
+                $this->state->getDomain()
+            );
+
         }
-        
-        if($base_project === "/"){
-            $base_project = "";    
-        }
-        
-        $this->repository->save(
-            $method,
-            $base_project.$this->state->getPrefix() . $url,
-            $controller,
-            $name,
-            $this->state->getMiddleware(),
-            $this->state->getDomain()
-        );
         
     }
 

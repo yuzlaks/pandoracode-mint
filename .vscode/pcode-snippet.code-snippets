@@ -1,5 +1,16 @@
 {
 
+	// Template
+	"Code Highlight": {
+  
+	  "prefix": "p:code",
+  
+	  "body": "!! code : $1 !!"
+  
+	},
+
+
+
 	//PHP
 
 	"Echo": {
