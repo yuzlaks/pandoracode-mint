@@ -18,7 +18,7 @@ Kami akan berusaha untuk terus mengembangan framework ini.
 - [x] Easy to install other library
 - Etc..
 
-Lebih lengkap bisa cari disini
+Informasi lebih lengkap : 
 [Dokumentasi](http://pandoradev.site)
 
 Copyright © 2022 by Pandoradev.
