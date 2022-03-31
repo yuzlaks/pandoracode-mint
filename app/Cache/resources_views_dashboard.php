@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Welcome - Pandoracode Mint</title>
+=======
+    <title>Document</title>
+>>>>>>> 59340d37462c1ef879080feb320f9c9df7cc4c18
     <link rel="stylesheet" href="<?php echo htmlentities(asset('css/bootstrap.min.css'), ENT_QUOTES, 'UTF-8') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +88,43 @@
 </style>
 
 <body>
+<<<<<<< HEAD
+=======
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img class="" src="<?php echo htmlentities(asset('img/mint-logo.png'), ENT_QUOTES, 'UTF-8') ?>" alt="">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dokumentasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Source Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tentang Kami</a>
+                </li>
+
+            </ul>
+
+            <?php if(function_exists('auth')): ?> 
+            
+            <div class="dropdown" style="margin-left:-200px !important">
+                <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo htmlentities(auth()->username, ENT_QUOTES, 'UTF-8') ?>
+                </a>
+                <div style="margin-left:-100px !important" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="<?php echo htmlentities(url('logout'), ENT_QUOTES, 'UTF-8') ?>">Logout</a>
+                </div>
+            </div>
+            <?php endif; ?>
+
+
+        </div>
+    </nav>
+>>>>>>> 59340d37462c1ef879080feb320f9c9df7cc4c18
     <div class="container">
         <div class="d-flex justify-content-center">
 
@@ -93,9 +134,16 @@
             <p>"Kami berusaha terus berkembang menjadi lebih baik."</p>
 
             <br>
+<<<<<<< HEAD
             <a href="http://pandoradev.site" class="button">Dokumentasi</a>
 
             <p class="version-info">V 1.2</p>
+=======
+            <a href="google.com" class="button-start">Mulai Aksi</a>
+            <a href="google.com" class="button">Dokumentasi</a>
+
+            <p class="version-info">V 1.1</p>
+>>>>>>> 59340d37462c1ef879080feb320f9c9df7cc4c18
 
         </center>
     </div>

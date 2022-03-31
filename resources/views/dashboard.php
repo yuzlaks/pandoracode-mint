@@ -83,6 +83,43 @@
 </style>
 
 <body>
+<<<<<<< HEAD
+=======
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img class="" src="{{ asset('img/mint-logo.png') }}" alt="">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dokumentasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Source Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tentang Kami</a>
+                </li>
+
+            </ul>
+
+            !! if(function_exists('auth')) !! 
+            
+            <div class="dropdown" style="margin-left:-200px !important">
+                <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ auth()->username }}
+                </a>
+                <div style="margin-left:-100px !important" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
+                </div>
+            </div>
+            !! endif !!
+
+
+        </div>
+    </nav>
+>>>>>>> 59340d37462c1ef879080feb320f9c9df7cc4c18
     <div class="container">
         <div class="d-flex justify-content-center">
 
@@ -92,7 +129,12 @@
             <p>"Kami berusaha terus berkembang menjadi lebih baik."</p>
 
             <br>
+<<<<<<< HEAD
             <a href="http://pandoradev.site" class="button">Dokumentasi</a>
+=======
+            <a href="#" class="button-start">Mulai Aksi</a>
+            <a href="https://pandoradev.site" class="button">Dokumentasi</a>
+>>>>>>> 59340d37462c1ef879080feb320f9c9df7cc4c18
 
             <p class="version-info">V 1.2</p>
 
